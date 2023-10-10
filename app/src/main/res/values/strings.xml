@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ListaCompras</string>
+    <string name="textView">Lista de Produtos</string>
+    <string name="editText">Nome do Produto</string>
+    <string name="buttonAdd">Adicionar</string>
+    <string name="textViewNew">Novo Item</string>
+    <string name="imageButton">Delete Button</string>
+</resources>
