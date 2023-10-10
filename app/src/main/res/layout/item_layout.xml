@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:gravity="center_vertical"
@@ -8,10 +9,20 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="325dp"
+        android:layout_width="326dp"
         android:layout_height="wrap_content"
         android:text="@string/textViewNew"
         android:textSize="20sp"
         android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/imageButton"
+        android:src="@drawable/baseline_delete_24"
+        tools:ignore="RedundantDescriptionCheck,TouchTargetSizeCheck" />
 
 </LinearLayout>
