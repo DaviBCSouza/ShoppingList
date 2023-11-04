@@ -1,5 +1,6 @@
 package ifam.edu.br.pdm.listacompras
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,32 +11,25 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
 
-    private val itens = mutableListOf<ItemModel>()
+    private var items = listOf<ItemModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
         return ItemViewHolder(view)
     }
 
-    fun addItem(newItem: ItemModel) {
-        itens.add(newItem)
-        // Avisa a lista que existem itens novos e que ela deve recarregar
-        notifyItemInserted(itens.size - 1)
-    }
-
-    fun removeItem(item: ItemModel) {
-        val position = itens.indexOf(item)
-        if (position != -1) {
-            itens.removeAt(position)
-            notifyItemRemoved(position)
-        }
-    }
-
-    override fun getItemCount(): Int = itens.size
+    override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val item = itens[position]
+        val item = items[position]
         holder.bind(item)
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateItems(newItems: List<ItemModel>) {
+        items = newItems
+        // Avisa a lista que existem itens novos e que ela deve recarregar
+        notifyDataSetChanged()
     }
 
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {

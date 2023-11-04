@@ -9,8 +9,10 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="326dp"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_weight="1"
         android:text="@string/textViewNew"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -22,7 +24,7 @@
         android:layout_weight="1"
         android:background="@android:color/transparent"
         android:contentDescription="@string/imageButton"
-        android:src="@drawable/baseline_delete_24"
+        android:src="@drawable/ic_baseline_delete_24"
         tools:ignore="RedundantDescriptionCheck,TouchTargetSizeCheck" />
 
 </LinearLayout>
