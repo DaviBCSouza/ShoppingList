@@ -2,8 +2,9 @@ package ifam.edu.br.pdm.listacompras
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import ifam.edu.br.pdm.listacompras.data.ItemsDatabase
 
-class ItemsViewModel : ViewModel() {
+class ItemsViewModel(private val database: ItemsDatabase) : ViewModel() {
     private var items = mutableListOf<ItemModel>()
     val itemsLiveData = MutableLiveData<List<ItemModel>>()
 

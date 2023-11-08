@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 
 class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
@@ -28,7 +29,7 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
     @SuppressLint("NotifyDataSetChanged")
     fun updateItems(newItems: List<ItemModel>) {
         items = newItems
-        // Avisa a lista que existem itens novos e que ela deve recarregar
+        // Avisa a lista que houve alteração nos itens e que ela deve recarregar
         notifyDataSetChanged()
     }
 
@@ -39,6 +40,7 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
         // Receber os dados e exibi-los na tela
         fun bind(item: ItemModel) {
             textView.text = item.name
+            textView.typeface = ResourcesCompat.getFont(itemView.context, R.font.chewy)
 
             button.setOnClickListener {
                 // Criar uma caixa de diálogo com AlertDialog
