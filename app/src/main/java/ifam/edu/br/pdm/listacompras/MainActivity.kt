@@ -11,7 +11,9 @@ import androidx.core.content.getSystemService
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
-    private val viewModel: ItemsViewModel by viewModels()
+    private val viewModel: ItemsViewModel by viewModels {
+        ItemsViewModelFactory(applicationContext)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
