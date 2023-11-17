@@ -1,5 +1,6 @@
 package ifam.edu.br.pdm.listacompras
 
+import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,10 +11,17 @@ import kotlinx.coroutines.launch
 
 class ItemsViewModel(private val database: ItemsDatabase) : ViewModel() {
     val itemsLiveData = MutableLiveData<List<ItemModel>>()
+    val totalLiveData = MutableLiveData<Double>()
 
-    fun addItem(name: String) {
+    fun addItem(image: Uri, name: String, amount: String, value: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            val entity = ItemEntity(id = 0, name = name)
+            val entity = ItemEntity(
+                id = 0,
+                image = image,
+                name = name,
+                amount = amount,
+                value = value
+            )
             database.itemsDAO().insert(entity)
             fetchAll()
         }
@@ -27,6 +35,11 @@ class ItemsViewModel(private val database: ItemsDatabase) : ViewModel() {
         }
     }
 
+    private fun updateTotal(items: List<ItemModel>) {
+        val total = items.sumOf { it.value.toDouble() }
+        totalLiveData.postValue(total)
+    }
+
     // Esta função buscará todos os registros do banco de dados
     private suspend fun fetchAll() {
         val result = database.itemsDAO().getAll().map {
@@ -34,5 +47,6 @@ class ItemsViewModel(private val database: ItemsDatabase) : ViewModel() {
         }
 
         itemsLiveData.postValue(result)
+        updateTotal(result)
     }
 }

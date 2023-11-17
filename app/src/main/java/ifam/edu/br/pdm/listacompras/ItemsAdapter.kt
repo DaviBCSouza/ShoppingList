@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.res.ResourcesCompat
@@ -19,12 +20,12 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
         return ItemViewHolder(view)
     }
 
-    override fun getItemCount(): Int = items.size
-
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = items[position]
         holder.bind(item)
     }
+
+    override fun getItemCount(): Int = items.size
 
     @SuppressLint("NotifyDataSetChanged")
     fun updateItems(newItems: List<ItemModel>) {
@@ -34,13 +35,24 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
     }
 
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val textView = view.findViewById<TextView>(R.id.textView)
+        private val imageView = view.findViewById<ImageView>(R.id.imageProduto)
+        private val textViewItem = view.findViewById<TextView>(R.id.textItem)
+        private val textViewQtd = view.findViewById<TextView>(R.id.textQtd)
+        private val textViewValor = view.findViewById<TextView>(R.id.textValor)
         private val button = view.findViewById<ImageButton>(R.id.imageButton)
 
         // Receber os dados e exibi-los na tela
         fun bind(item: ItemModel) {
-            textView.text = item.name
-            textView.typeface = ResourcesCompat.getFont(itemView.context, R.font.chewy)
+            imageView.setImageURI(item.image)
+
+            textViewItem.text = item.name
+            textViewQtd.text = itemView.context.getString(R.string.item_amount, item.amount)
+            textViewValor.text = itemView.context.getString(R.string.item_value, item.value)
+
+            textViewItem.typeface = ResourcesCompat.getFont(itemView.context, R.font.chewy)
+            textViewQtd.typeface = ResourcesCompat.getFont(itemView.context, R.font.chewy)
+            textViewValor.typeface = ResourcesCompat.getFont(itemView.context, R.font.chewy)
+
 
             button.setOnClickListener {
                 // Criar uma caixa de diálogo com AlertDialog

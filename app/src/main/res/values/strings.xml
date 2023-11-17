@@ -1,8 +1,24 @@
 <resources>
     <string name="app_name">ListaCompras</string>
-    <string name="textView">Lista de Produtos</string>
+    <!-- Tela Produtos -->
+    <string name="textViewTitle">Lista de Produtos</string>
+    <string name="buttonAdd">Adicionar Itens</string>
+    <string name="textViewTotal">TOTAL: R$0,00</string>
+    <string name="novoTotal">TOTAL: R$%.2f</string>
+    <!-- Tela Cadastrar -->
+    <string name="textView">Cadastrar Produto</string>
+    <string name="imageUpload">Upload do Produto</string>
     <string name="editText">Nome do Produto</string>
-    <string name="buttonAdd">Adicionar</string>
+    <string name="editTextQtd">Quantidade</string>
+    <string name="editTextValor">R$0,00</string>
+    <string name="buttonInserir">Inserir</string>
+    <!-- Layout do Item -->
+    <string name="imageProduto">Imagem do Produto</string>
     <string name="textViewNew">Novo Item</string>
+    <string name="textQtd">0 Qtd</string>
+    <string name="textValor">R$0,00</string>
     <string name="imageButton">Delete Button</string>
+    <!-- ItemsAdapter.kt -->
+    <string name="item_amount">%s Qtd</string>
+    <string name="item_value">R$ %s</string>
 </resources>

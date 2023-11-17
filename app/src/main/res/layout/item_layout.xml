@@ -1,30 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ItemLayout"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:padding="5dp">
 
+    <ImageView
+        android:id="@+id/imageProduto"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="@string/imageProduto"
+        android:scaleType="fitCenter"
+        tools:ignore="ImageContrastCheck"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="240dp"
+        android:id="@+id/textItem"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_weight="1"
+        android:fontFamily="@font/chewy"
         android:text="@string/textViewNew"
         android:textSize="20sp"
         android:textStyle="bold" />
 
+    <LinearLayout
+        android:id="@+id/Components"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textQtd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/chewy"
+            android:text="@string/textQtd" />
+
+        <TextView
+            android:id="@+id/textValor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/chewy"
+            android:text="@string/textValor" />
+
+    </LinearLayout>
+
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="0dp"
+        android:layout_width="65dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:background="@android:color/transparent"
         android:contentDescription="@string/imageButton"
-        android:src="@drawable/ic_baseline_delete_24"
+        android:src="@drawable/ic_baseline_delete"
         tools:ignore="RedundantDescriptionCheck,TouchTargetSizeCheck" />
-
 </LinearLayout>

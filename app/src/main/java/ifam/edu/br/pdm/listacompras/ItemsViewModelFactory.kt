@@ -12,7 +12,8 @@ class ItemsViewModelFactory(private val applicationContext: Context) : ViewModel
         return Room.databaseBuilder(
             applicationContext,
             ItemsDatabase::class.java, "items_database.db"
-        ).build()
+        ).fallbackToDestructiveMigration()
+            .build()
     }
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
